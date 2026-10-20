@@ -1,0 +1,39 @@
+stage: 3
+data:
+  train_index: /data/causalalign/wan_inputs/stage3/index.jsonl
+  val_index: /data/causalalign/wan_inputs/eval/index.jsonl
+teacher_checkpoint: outputs/stage1/best.pt
+projector_checkpoint: outputs/stage2/best.pt
+wan:
+  model_path: /models/Wan-AI/Wan2.2-I2V-A14B-Diffusers
+  dtype: bf16
+  gradient_checkpointing: true
+targets:
+  layers: [10, 12, 14, 20]
+  progress: [398, 799]  # indices in the descending 1000-step Wan scheduler
+  progress_weights: {398: 0.5, 799: 0.5}
+lora:
+  rank: 16
+  alpha: 16
+  dropout: 0.0
+  modules: [self.to_q, self.to_k, self.to_v, self.to_out.0, cross.to_q, cross.to_k, cross.to_v, cross.to_out.0]
+  experts: [transformer_2]
+optimization:
+  max_updates: 12
+  warmup_steps: 2
+  minimum_lr_ratio: 0.1
+  batch_size: 1
+  gradient_accumulation: 9
+  learning_rate: 0.000007
+  weight_decay: 0.01
+  fused_adamw: true
+  grad_clip: 1.0
+  amp: bf16
+  log_every: 10
+  save_every: 4
+  validate_every: 4
+loss:
+  lambda_delta: 0.2
+output_dir: outputs/stage3
+seed: 20260806
+

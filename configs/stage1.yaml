@@ -1,0 +1,34 @@
+stage: 1
+data:
+  train_index: /data/causalalign/teacher_features/stage1/index.jsonl
+  val_index: /data/causalalign/teacher_features/eval/index.jsonl
+model:
+  state_dim: 4096
+  width: 512
+  depth: 2
+  geometry_dim: 1792   # log-depth + normals at 16x28
+  visual_dim: 5376     # RGB change at 32x56
+optimization:
+  max_updates: 40000
+  batch_size: 4
+  gradient_accumulation: 1
+  phase1_learning_rate: 0.0002
+  phase2_learning_rate: 0.000005
+  phase1_warmup_steps: 500
+  phase2_warmup_steps: 500
+  weight_decay: 0.0001
+  fused_adamw: true
+  grad_clip: 1.0
+  amp: bf16
+  log_every: 20
+  save_every: 1000
+  validate_every: 1000
+loss:
+  lambda_temporal: 0.1
+  lambda_pose: 0.2
+  transition_state: 1.0
+  transition_geometry: 1.0
+  transition_visual: 1.0
+output_dir: outputs/stage1
+seed: 20260806
+

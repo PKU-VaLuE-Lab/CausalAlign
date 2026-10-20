@@ -1,0 +1,30 @@
+stage: 2
+data:
+  train_index: /data/causalalign/wan_transitions/stage2/index.jsonl
+  val_index: /data/causalalign/wan_transitions/eval/index.jsonl
+teacher_checkpoint: outputs/stage1/best.pt
+model:
+  input_dim: 15360       # Gamma = [h_t, h_t+1, h_t+1-h_t], Wan14B width=5120
+  hidden_dim: 1024
+  depth: 2
+optimization:
+  max_updates: 50000
+  warmup_steps: 1000
+  minimum_lr_ratio: 0.0
+  batch_size: 4
+  gradient_accumulation: 1
+  learning_rate: 0.0002
+  weight_decay: 0.01
+  fused_adamw: true
+  grad_clip: 1.0
+  amp: bf16
+  log_every: 20
+  save_every: 1000
+  validate_every: 1000
+targets:
+  layers: [10, 12, 14, 20]
+  progress: [398, 799]  # indices in the descending 1000-step Wan scheduler
+  progress_weights: {398: 0.5, 799: 0.5}
+output_dir: outputs/stage2
+seed: 20260806
+

@@ -1,0 +1,18 @@
+datasets:
+  dl3dv:
+    root: /data/DL3DV
+    format: transforms
+  realestate10k:
+    root: /data/RealEstate10K
+    format: realestate10k
+output_root: /data/causalalign/manifests
+seed: 20260806
+train_fraction: 0.90
+stage_fractions:
+  stage1: 0.30
+  stage2: 0.10
+  stage3: 1.00
+min_frames: 9
+feature_stride: 4
+default_caption: A realistic video of the scene with natural camera motion.
+
