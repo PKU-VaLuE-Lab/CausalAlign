@@ -5,9 +5,9 @@
 <p align="center"><sup>1</sup> Peking University · <sup>2</sup> Beijing Institute for General Artificial Intelligence · <sup>3</sup> NVIDIA · <sup>4</sup> Tsinghua University · <sup>5</sup> University of Wisconsin–Madison<br><small><sup>*</sup> Equal contribution · <sup>†</sup> Corresponding author</small></p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2603.02133"><img src="https://img.shields.io/badge/arXiv-Paper-B31B1B" alt="arXiv paper"></a>
+  <a href="https://arxiv.org/abs/2610.29915"><img src="https://img.shields.io/badge/arXiv-Paper-B31B1B" alt="arXiv paper"></a>
   <a href="https://pku-value-lab.github.io/CausalAlign-homepage/"><img src="https://img.shields.io/badge/Project-Page-1F6FEB" alt="Project page"></a>
-  <a href="https://huggingface.co/papers/2603.02133"><img src="https://img.shields.io/badge/Hugging%20Face-Daily%20Paper-FFD21E" alt="Hugging Face Daily Paper"></a>
+  <a href="https://huggingface.co/papers/2610.29915"><img src="https://img.shields.io/badge/Hugging%20Face-Daily%20Paper-FFD21E" alt="Hugging Face Daily Paper"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-green" alt="Apache-2.0 license"></a>
 </p>
 
@@ -198,7 +198,7 @@ demo/                     Project demo assets
 @article{zhu2026causalalign,
   title   = {CausalAlign: Causal Alignment of Video Generation Models for Consistent Ego-Motion},
   author  = {Zhu, Kai and Zhang, Yintianrun and Jiang, Shuwei and Zuo, Ruolin and Chen, Yixin and Wang, Duomin and Liu, Miao and Li, Yin and Zhou, Daquan and Zhong, Yiwu},
-  journal = {arXiv preprint arXiv:2603.02133},
+  journal = {arXiv preprint arXiv:2610.29915},
   year    = {2026}
 }
 ~~~
